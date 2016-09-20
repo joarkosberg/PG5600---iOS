@@ -88,6 +88,19 @@ Forventet resultat
 //:    g
 //:    o
 //:    n
+let arrayLoop = ["Hei", "på", "deg"]
+
+//Ord for ord
+for s in arrayLoop {
+    print(s)
+}
+
+//Bokstav for bokstav
+for s in arrayLoop{
+    s.characters.forEach{
+        print($0)
+    }
+}
 
 /*:
 ## Oppgave 8
@@ -95,8 +108,11 @@ Forventet resultat
 Lag en dictionary med 5 key-value par, loop over den og skriv ut key og value med print
 
 */
-
-
+let dictonary = ["Nummer en" : 1, "Nummer to" : 2, "Nummer tre" : 3,
+                 "Nummer fire" : 4, "Nummer fem" : 5]
+for(k, v) in dictonary {
+    print("Key -> \(k), Value -> \(v)")
+}
 
 /*:
 ## Oppgave 9
@@ -109,6 +125,7 @@ Lag et nytt iOS prosjekt i Xcode av typen “Single View Application”.
 5. Kjør simulatoren og verifiser at tekststrengen dukker opp.
 */
 
+//Done
 
 //:## Oppgave 10
 
@@ -116,7 +133,6 @@ Lag et nytt iOS prosjekt i Xcode av typen “Single View Application”.
 //:men index og antall launches er fortsatt riktig - Falcon 9 har 19 launches, Atlas V har 55, osv.
 let rockets : [Any?] = ["Falcon 9", nil, -999, nil, "Atlas V", nil, "Space Shuttle", nil, "My Water bottle-rocket"]
 let numberOfLaunches = [19, 55, 135, 1]
-
 //:    Gå gjennom rockets og skriv rakettenes navn og antall launches på formatet
 //:    Falcon 9 : 55 launches
 //:    ...
