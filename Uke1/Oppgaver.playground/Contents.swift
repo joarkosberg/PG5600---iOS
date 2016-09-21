@@ -131,14 +131,27 @@ Lag et nytt iOS prosjekt i Xcode av typen “Single View Application”.
 
 //:Du har fått disse to objektene med data fra et API, dessverre har det kommet med litt andre verdier i array,
 //:men index og antall launches er fortsatt riktig - Falcon 9 har 19 launches, Atlas V har 55, osv.
+print()
 let rockets : [Any?] = ["Falcon 9", nil, -999, nil, "Atlas V", nil, "Space Shuttle", nil, "My Water bottle-rocket"]
 let numberOfLaunches = [19, 55, 135, 1]
 //:    Gå gjennom rockets og skriv rakettenes navn og antall launches på formatet
 //:    Falcon 9 : 55 launches
 //:    ...
 //:    My water bottle-rocket : 1 launch        // merk dropp genitivs-s når det er kun 1 launch
+//Filter out bad values
+let cleanedRockets = rockets.filter({$0 is String})
 
-
+//Print and format
+print("Rockets and their launches:")
+for i in 0..<cleanedRockets.count{
+    var rocket : String = cleanedRockets[i] as! String
+    print("\(rocket) : \(numberOfLaunches[i]) ", terminator:"")
+    if(numberOfLaunches[i] > 1){
+        print("launches")
+    } else {
+        print("launch")
+    }
+}
 
 /*:
 ## Oppgave 11
@@ -179,3 +192,4 @@ Vil skrive ut:
 Java, Objective-C, Python, Swift
 
 */
+//Done

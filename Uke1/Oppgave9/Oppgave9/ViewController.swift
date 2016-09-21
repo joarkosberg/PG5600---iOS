@@ -12,16 +12,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Data
         let title = "Dette er en tittel"
         let message = "Denne beskjeden er veldig viktig!"
         let button = "Knappen!"
         
         //Alert + action
-        let alert = UIAlertController(title: title,
-                                      message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: button,
-                                     style: .default, handler: nil)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: button, style: .default)
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
