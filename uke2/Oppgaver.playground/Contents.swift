@@ -72,12 +72,16 @@ repeatCharacter(Character("W"), 5)
 */
 
 
+
+
 /*:
 ## Oppgave 4b
 Utvid funksjonen til å støtte default parametere. Dvs. at når times ikke oppgis, så skal den som standard settes til 1. Output her blir altså "W"
 
 repeatCharacter(Character("W"))
 */
+
+
 
 
 
