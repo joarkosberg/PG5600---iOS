@@ -211,8 +211,6 @@ print(calcFn([3, 6, 9]))
 
 
 
-
-
 /*:
 # Oppgave 8
 Lag en request-metode som tar inn en string som første
