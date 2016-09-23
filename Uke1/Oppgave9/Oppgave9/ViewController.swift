@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        //Data
+        //Init of data
         let title = "Dette er en tittel"
         let message = "Denne beskjeden er veldig viktig!"
         let button = "Knappen!"

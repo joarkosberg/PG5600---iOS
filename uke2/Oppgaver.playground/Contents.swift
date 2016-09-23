@@ -60,7 +60,7 @@ func numbersBiggerThan(values: Array<Int>, number: Int) -> Array<Int>?{
     }
 }
 
-numbersBiggerThan(values: [ 1, 5, 9, 12, 13, 123, 1000], number: 7)
+numbersBiggerThan(values: [ 1, 5, 9, 12, 13, 123, 1000], number: 12)
 
 
 /*:
@@ -69,20 +69,24 @@ Lag denne funksjonen. Output skal være "WWWWW"
 
 repeatCharacter(Character("W"), 5)
 
-*/
-
-
-
-
-/*:
 ## Oppgave 4b
 Utvid funksjonen til å støtte default parametere. Dvs. at når times ikke oppgis, så skal den som standard settes til 1. Output her blir altså "W"
 
 repeatCharacter(Character("W"))
 */
 
+func repeatCharacter(char: Character, times: Int = 1) -> String{
+    var looped = "";
+    if(times > 0){
+        for _ in 1...times{
+            looped.append(char)
+        }
+    }
+    return looped;
+}
 
-
+repeatCharacter(char: "å", times: 6)
+repeatCharacter(char: "å")
 
 
 /*:
@@ -94,29 +98,50 @@ Lag en funksjon og en enum gjør at du kan definere denne metoden :
 setCase(text: "Interstellar", case: .Uppercase) // INTERSTELLAR
 setCase(text: "Interstellar", case: .Lowercase) // interstellar
 */
-
 /*:
 ## Opppgave 5b
 utvid funksjonen til å akseptere nil som case argument, hvor den da velger uppercase
 
 setCase(text: "Interstellar", case: nil) // INTERSTELLAR
-
 */
-
 /*:
 ## Oppgave 5c 
 utvid funksjonen til å ha default nil som case arugment, slik at man kan, men ikke trenger å gi case
 
 setCase(text: "Interstellar") // INTERSTELLAR
 */
-
 /*:
 ## Oppgave 5d
 utvid funksjonen til å kunne ta nil som text argument også, men da retunerer nil
 
 setCase(text: nil) // nil
-
 */
+
+
+
+enum Cases {
+    case Uppercase
+    case Lowercase
+}
+
+func formatText(text: String?, format: Cases? = nil) -> String? {
+    if let actualText = text{
+        if(format == .Lowercase){
+            return actualText.lowercased()
+        } else{
+            return actualText.uppercased()
+        }
+    } else {
+        return nil
+    }
+}
+
+formatText(text: "Interstellar", format: .Uppercase) // INTERSTELLAR
+formatText(text: "Interstellar", format: .Lowercase) // interstellar
+formatText(text: "Interstellar", format: nil) // INTERSTELLAR
+formatText(text: "Interstellar") // INTERSTELLAR
+formatText(text: nil) // nil
+
 
 /*:
 ## Oppgave 6a
@@ -125,8 +150,6 @@ Lag en funksjon som kan ta inn et variabelt antall parametere, og sum regner ut 
 calculate(2, 5, 5) // --> 50
 calculate(10, 10) // --> 100
 */
-
-
 /*:
 ## Oppgave 6b
 Utvid funksjonen slik at den støtter utregning av både produkt og sum (med enum som første parameter):
@@ -136,8 +159,6 @@ calculate(.Product, 10, 10) // -> 100
 calculate(.Sum, 2, 5, 5) // -> 12
 calculate(.Sum, 10, 10) // -> 20
 */
-
-
 /*:
 ## Oppgave 6c
 Endre funksjonen slik at den returnerer flere verdier, og alltid regner ut både produkt og sum:
@@ -145,6 +166,37 @@ Endre funksjonen slik at den returnerer flere verdier, og alltid regner ut både
 let result = calculate(2, 5, 5)
 print("Produkt: \(result.product), Sum: \(result.sum)")
 */
+
+enum Operators {
+    case Product
+    case Sum
+}
+
+func calculate1(_ numbers: Int...) -> Int{
+    return numbers.reduce(1, {$0 * $1})
+}
+func calculate2(selectedOperator: Operators, _ numbers: Int...) -> Int{
+    if(selectedOperator == .Sum){
+        return numbers.reduce(0, +)
+    } else {
+        return numbers.reduce(1, {$0 * $1})
+    }
+}
+func calculate3(_ numbers: Int...) -> (sum: Int, produkt: Int){
+    let sum = numbers.reduce(0, +)
+    let produkt = numbers.reduce(1, *)
+    return (sum, produkt)
+}
+
+calculate1(2, 5, 5) // --> 50
+calculate1(10, 10) // --> 100
+
+calculate2(selectedOperator: .Product, 12, 2, 4)
+calculate2(selectedOperator: .Sum, 3, 2, 653)
+
+let a = calculate3(2, 5, 5) // --> 50
+calculate3(10, 10) // --> 100
+print("a sum = \(a.sum), produkt = \(a.produkt)")
 
 /*:
 ## Oppgave 7
@@ -155,6 +207,11 @@ if let calcFn = getCalculator("+") {
 print(calcFn([3, 6, 9]))
 }
 */
+
+
+
+
+
 
 /*:
 # Oppgave 8
@@ -173,8 +230,11 @@ Når URLen er `http://www.vg.no` som i eksemplet, skal
 beskrivelsen være "Verdens gang". Dersom URLen er `http://www.aftenposten.no` skal beskrivelsen være "Aftenposten". I andre tilfeller er beskrivelsen `nil` og `Fant ikke noen beskrivelse` skal skrives ut
 */
 
-/*:
 
+
+
+
+/*:
 # Oppgave 9 a.
 
 Lag en metode som tar string som 1. parameter, success-closure som 2. parameter, og error-closure som 3.parameter. Response skal være av typen [NSObject : AnyObject], og error skal være av typen NSError
@@ -184,9 +244,7 @@ startRequesting(url:"http://http.cat", success: { (response) in
 }, failure: { (error) in
      print(error)
 }
-
 */
-
 /*:
 # Oppgave 9 b.
 
@@ -196,7 +254,6 @@ startRequesting(url:"http://http.cat", success: { (response) in
      print(response)
 }
 */
-
 /*:
 # Oppgave 9 c.
 
@@ -207,6 +264,10 @@ startRequesting(url:"http://http.cat", method: httpMethod.GET, success: { (respo
      print(response)
 }
 */
+
+
+
+
 
 
 /*:
