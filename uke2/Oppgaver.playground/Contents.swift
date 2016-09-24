@@ -208,6 +208,30 @@ print(calcFn([3, 6, 9]))
 }
 */
 
+func getCalculator(chosenOperator: String) -> ((Array<Int>) -> Int)?{
+    if(chosenOperator == "*"){
+        func calcFn(numbers: Array<Int>) -> Int{
+            return numbers.reduce(1, *)
+        }
+        return calcFn
+    } else if (chosenOperator == "+"){
+        func calcFn(numbers: Array<Int>) -> Int{
+            return numbers.reduce(0, +)
+        }
+        return calcFn
+    } else {
+        return nil
+    }
+}
+
+
+if let calcFn = getCalculator(chosenOperator: "+") {
+    print(calcFn([3, 6, 9]))
+}
+if let calcFn = getCalculator(chosenOperator: "*") {
+    print(calcFn([3, 6, 9]))
+}
+let calcFn = getCalculator(chosenOperator: "12")
 
 
 
@@ -228,6 +252,29 @@ Når URLen er `http://www.vg.no` som i eksemplet, skal
 beskrivelsen være "Verdens gang". Dersom URLen er `http://www.aftenposten.no` skal beskrivelsen være "Aftenposten". I andre tilfeller er beskrivelsen `nil` og `Fant ikke noen beskrivelse` skal skrives ut
 */
 
+
+//TODO Fiks clossure
+func request(link: String, closure: (Bool) -> ()) -> () {
+    let words = link.characters.split(separator: ".").flatMap(String.init)
+    let theWord = words[1]
+    print(theWord)
+}
+
+
+request(link: "http://www.vg.no", closure: { beskrivelse in
+    if beskrivelse {
+        print(beskrivelse)
+    } else {
+        print("Fant ikke noen beskrivelse")
+    }
+})
+request(link: "http://www.adressa.no", closure: { beskrivelse in
+    if beskrivelse {
+        print(beskrivelse)
+    } else {
+        print("Fant ikke noen beskrivelse")
+    }
+})
 
 
 
