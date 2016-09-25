@@ -254,27 +254,22 @@ beskrivelsen være "Verdens gang". Dersom URLen er `http://www.aftenposten.no` s
 
 
 //TODO Fiks clossure
-func request(link: String, closure: (Bool) -> ()) -> () {
+func request(link: String, closure: (String?) -> ()){
     let words = link.characters.split(separator: ".").flatMap(String.init)
-    let theWord = words[1]
-    print(theWord)
+    let beskrivelse = words[1]
+    closure(beskrivelse)
 }
 
 
-request(link: "http://www.vg.no", closure: { beskrivelse in
-    if beskrivelse {
-        print(beskrivelse)
-    } else {
-        print("Fant ikke noen beskrivelse")
-    }
-})
+request(link: "http://www.vg.no",
+        closure: { beskrivelse in
+    if let actualBeskrivelse = beskrivelse { print(actualBeskrivelse)}
+    else { print("Fant ikke noen beskrivelse") }})
+
+
 request(link: "http://www.adressa.no", closure: { beskrivelse in
-    if beskrivelse {
-        print(beskrivelse)
-    } else {
-        print("Fant ikke noen beskrivelse")
-    }
-})
+    if let actualBeskrivelse = beskrivelse { print(actualBeskrivelse)}
+    else { print("Fant ikke noen beskrivelse")}})
 
 
 
@@ -311,7 +306,24 @@ startRequesting(url:"http://http.cat", method: httpMethod.GET, success: { (respo
 */
 
 
+enum requestMethod {
+    case GET
+    case POST
+    case PUT
+    case DELETE
+}
 
+func startRequesting(url: String, method: requestMethod,
+                     success: (AnyObject) -> (),
+                     failure: ((Error) -> ())? = nil){
+}
+
+startRequesting(url:"http://http.cat", method: .GET,
+                success: { (response) in print(response) },
+                failure: { (error) in print(error) })
+
+startRequesting(url:"http://http.cat", method: .PUT,
+                success: { (response) in print(response) })
 
 
 
@@ -354,7 +366,48 @@ I was here!
 */
 
 
+struct Coordinate {
+    var lat: Double = 0;
+    var long: Double = 0;
+}
 
+class GeoCache {
+    var coordinates: Coordinate
+    var name: String
+    var hint: String
+    var log: Array<String>
+    
+    init(lat: Double, long: Double, name: String, hint: String){
+        self.coordinates = Coordinate(lat: lat, long: long)
+        self.name = name
+        self.hint = hint
+        self.log = []
+    }
+    
+    func signLog(message: String){
+        log.append(message)
+    }
+    
+    func description() -> String{
+        var returnMe = "\(name)\n\(coordinates.lat) \(coordinates.long)\nHint: \(hint)\n\nLogg:"
+        for l in log{
+            returnMe.append("\n" + l)
+        }
+        return returnMe
+        
+    }
+}
+
+let gCache = GeoCache(
+    lat: 59.91126,
+    long: 10.76046,
+    name: "Westerdals",
+    hint: "Rom 81")
+
+gCache.signLog(message: "Someone was here...")
+gCache.signLog(message: "I was here!")
+
+print(gCache.description())
 
 
 
