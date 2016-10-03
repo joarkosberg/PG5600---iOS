@@ -56,6 +56,41 @@ let madScientist2 = MadScientist(IQ: 32)       // HINT: bruk convenience init og
 
 */
 
+class LivingBeing {
+    final var birthPlace: String?
+    final var birthDate: Date = Date()
+}
+
+class Person : LivingBeing{
+    var name: String?
+}
+
+class Scientist : Person {
+    var IQ: Int = 0
+}
+/* TODO
+class MadScientist : Scientist {
+    var madnessFactor: Int = 0
+    
+    init (IQ: Int){
+        self.IQ = IQ
+    }
+    
+    convenience init(madnessFactor: Int, IQ: Int, name: String) {
+        self.init(IQ: IQ)
+        self.madnessFactor = madnessFactor
+        self.name = name
+    }
+}
+
+
+let madScientist = MadScientist(madnessFactor: 41, IQ: 32, name: "John Doe")
+let madScientist2 = MadScientist(IQ: 32)
+*/
+
+
+
+
 /*:
 
 ## Oppgave 3
@@ -76,6 +111,40 @@ var stoppedAt: Date?
 
 */
 
+/*
+ Den feiler på grunn av at tre av de stored properties ikke blir initialized 
+ eller har default/optional values
+ */
+
+class Timer {
+    var hour: Int
+    var minute: Int
+    var second: Int
+    
+    var running: Bool = false
+    var startedAt: Date?
+    var stoppedAt: Date?
+    
+    init (hour: Int, minute: Int, second: Int){
+        self.hour = hour
+        self.minute = minute
+        self.second = second
+    }
+    
+    convenience init (){
+        self.init(hour: 0, minute: 0, second: 0)
+    }
+    
+    convenience init (second: Int){
+        self.init(hour: 0, minute: 0, second: second)
+    }
+    
+    let normalInit = Timer(hour: 21, minute: 22, second: 23)
+    let convenienceInit = Timer()
+    let minuteConvenience = Timer(second: 43)
+}
+
+
 
 /*:
 ## Oppgave 4
@@ -89,6 +158,76 @@ var stoppedAt: Date?
 7. Identifiser hva slags type det er og skriv det ut ved hjelp av println
 
 */
+
+class Animal {
+    final var sound: String
+    var weight: Double
+    var height: Double
+    var tail: Bool = false
+    var sleeping: Bool = false
+    
+    init(sound: String, weight: Double, height: Double){
+        self.sound = sound
+        self.weight = weight
+        self.height = height
+    }
+    
+    func Sleep (){
+        sleeping = true
+    }
+    
+    func GetSound() -> String{
+        return sound
+    }
+    
+    func PrintMyThing() -> String{
+        return "Im an Animal"
+    }
+}
+
+class Bird : Animal {
+    var canFly: Bool = true
+    
+    required init (sound: String, weight: Double, height: Double, canFly: Bool){
+        self.canFly = canFly
+        super.init(sound: sound, weight: weight, height: height)
+    }
+    
+    override func PrintMyThing() -> String {
+        return "Im a Bird"
+    }
+}
+
+class Cat : Animal {
+    var color: String
+    
+    required init (sound: String, weight: Double, height: Double, color: String){
+        self.color = color
+        super.init(sound: sound, weight: weight, height: height)
+        self.tail = true
+    }
+    
+    override func PrintMyThing() -> String {
+        return "Im a Cat"
+    }
+}
+
+var animalArray = [Animal]()
+let animal = Animal(sound: "Bært", weight: 22.123, height: 2.32)
+let bird1 = Bird(sound: "Pip", weight: 22.123, height: 2.32, canFly: true)
+let bird2 = Bird(sound: "PepPPEPE", weight: 22.123, height: 2.32, canFly: false)
+let cat1 = Cat(sound: "Miaw", weight: 2.23, height: 2.32, color: "Green")
+let cat2 = Cat(sound: "MÆÆÆ", weight: 2.123, height: 2.32, color: "Svart")
+animalArray += [animal, bird1, bird2, cat1, cat2]
+
+for a in animalArray{
+    print(a.PrintMyThing())
+    if let cat = a as? Cat {
+       print("CAT IS HERE \(cat.color)")
+    }
+    print("\(a.GetSound())")
+}
+
 
 
 /*:
