@@ -54,6 +54,7 @@ frog.deathDate
 frog.isAlive     // false
 
 
+
 /*:
  ## Oppgave 6
  
