@@ -70,9 +70,42 @@ frog.isAlive     // false
  
  */
 
+class School{
+    var name: String
+    var students: Array<Student>?
+    
+    init(name: String){
+        self.name = name
+    }
+}
+
+class Student {
+    var address: Address?
+    
+    init(){}
+    
+    convenience init(address: Address){
+        self.init()
+        self.address = address
+    }
+}
+
+class Address {
+    var street: String
+    
+    init(street: String){
+        self.street = street
+    }
+}
 
 
-
+let westerdals = School(name: "Westerdals")
+westerdals.students = [Student(), Student(address: Address(street: "Kosegaten 1b"))]
+if let street = westerdals.students?.first?.address?.street {
+    print("Studenten bor i \(street).")
+} else {
+    print("Kunne ikke hente gatenavn")
+}
 
 /*:
  ## Oppgave 7
