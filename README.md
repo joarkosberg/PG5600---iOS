@@ -1,2 +1,2 @@
-# PG5600---iOS
-iOS programmering.
+# PG5600 - iOS programming
+Tasks in iOS programming course.
