@@ -96,6 +96,10 @@ class Address {
     init(street: String){
         self.street = street
     }
+    
+    func buildFullStreetName() -> String{
+        return street
+    }
 }
 
 
@@ -119,9 +123,15 @@ if let street = westerdals.students?.first?.address?.street {
  println("Det var ikke mulig å sette en ny addresse")
  }
  ```
- 
  */
 
+
+var otherAddress = Address(street: "Cozy Street 5a")
+if (westerdals.students?.first?.address = otherAddress) != nil {
+    print("Du satt en ny addresse")
+} else {
+    print("Det var ikke mulig å sette en ny addresse")
+}
 
 
 /*:
@@ -136,72 +146,21 @@ if let street = westerdals.students?.first?.address?.street {
  println("Kunne ikke hente fullstendig gatenavn")
  }
  ```
- 
  */
 
-/*
- class Address {
- var street: String?
- 
- func printStreet() {
- print("Hello")
- }
- 
- func buildFullStreetName() -> String? {
- return street
- }
- }
- 
- class Student {
- var address: Address?
- }
- 
- class School {
- var students: [Student]?
- }
- 
- let westerdals = School()
- let student = Student()
- let address = Address()
- address.street = "Hello Street"
- 
- let otherAddress = Address()
- address.street = "Hello Street"
- student.address = address
- westerdals.students = [Student]()
- westerdals.students?.append(student)
- 
- if let street = westerdals.students?.first?.address?.street {
- print("Studenten bor i \(street).")
- } else {
- print("Kunne ikke hente gatenavn")
- }
- 
- if westerdals.students?.first?.address?.printStreet() != nil {
- print("Det gikk bra å kalle print funksjonen")
- } else {
- print("Jeg kunne ikke kalle metoden")
- }
- 
- if (westerdals.students?.first?.address = otherAddress) != nil {
- print("Du satt en ny addresse")
- } else {
- print("Det var ikke mulig å sette en ny addresse")
- }
- 
- if let fullStreetName = westerdals.students?.first?.address?.buildFullStreetName() {
- print("Fullstendig gatenavn er \(fullStreetName)")
- } else {
- print("Kunne ikke hente fullstendig gatenavn")
- }
- 
- if let fullStreetName = westerdals.students?[0].address?.buildFullStreetName() {
- print("Fullstendig gatenavn er \(fullStreetName)")
- } else {
- print("Kunne ikke hente fullstendig gatenavn")
- }
- 
- */
+
+if let fullStreetName = westerdals.students?.first?.address?.buildFullStreetName() {
+    print("Fullstendig gatenavn er \(fullStreetName)")
+} else {
+    print("Kunne ikke hente fullstendig gatenavn")
+}
+
+if let fullStreetName = westerdals.students?[0].address?.buildFullStreetName() {
+    print("Fullstendig gatenavn er \(fullStreetName)")
+} else {
+    print("Kunne ikke hente fullstendig gatenavn")
+}
+
 
 /*:
  
@@ -216,47 +175,23 @@ if let street = westerdals.students?.first?.address?.street {
  "Abba".contains("Abb") // SKal printe ut true
  ```
  */
-/*
- extension String {
- 
- subscript(index: Int) -> Character? {
- for (charIndex, character) in characters.enumerate() {
- if charIndex == index {
- return character
- }
- }
- return nil
- }
- 
- var length : Int  {
- return self.characters.count
- }
- 
- func reverse() -> String {
- var finalString = ""
- for var i = self.length - 1; i >= 0 ; i-- {
- finalString = "\(finalString)\(self[i]!)"
- }
- return finalString
- }
- 
- func contains(string: String) -> Bool {
- if (self as String).rangeOfString(string).location == NSNotFound {
- return false
- }
- return true
- }
- 
- }
- 
- "AB".length
- 
- "AB".reverse()
- 
- "Abba".contains("AbA")
- "Abba".contains("Abb")
- 
- */
+
+
+extension String {
+    var length: Int {
+        return self.characters.count
+    }
+    
+    func reverse() -> String {
+        return String(self.characters.reversed())
+    }
+}
+
+"AB".length // 2
+"AB".reverse() // Skal printe ut BA
+"Abba".contains("AbA") // Skal printe ut false
+"Abba".contains("Abb") // SKal printe ut true
+
 
 
 /*:
@@ -276,6 +211,17 @@ if let street = westerdals.students?.first?.address?.street {
  
  ```
  */
+
+
+
+
+
+
+
+
+
+
+
 /*
  extension Array {
  

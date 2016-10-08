@@ -173,7 +173,7 @@ enum Operators {
 }
 
 func calculate1(_ numbers: Int...) -> Int{
-    return numbers.reduce(1, {$0 * $1})
+    return numbers.reduce(1, *)
 }
 func calculate2(selectedOperator: Operators, _ numbers: Int...) -> Int{
     if(selectedOperator == .Sum){
