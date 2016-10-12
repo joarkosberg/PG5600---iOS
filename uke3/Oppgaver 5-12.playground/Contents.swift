@@ -213,41 +213,26 @@ extension String {
  */
 
 
+extension Array {
+    func thirdElementInArray() -> Element? {
+        let length = self.count
+        if length > 2 {
+            return self[2]
+        }
+        return nil
+    }
+}
+
+let anArray = [3,4,24,33]
+let anotherArray = ["hello", "world", "!"]
+let thirdArray = [23.3]
+
+anArray.thirdElementInArray()    // 24
+anotherArray.thirdElementInArray()    // !
+thirdArray.thirdElementInArray()    // nil
 
 
-
-
-
-
-
-
-
-/*
- extension Array {
- 
- func thirdElementInArray() -> Generator.Element? {
- 
- for (index,object) in self.enumerate() {
- if index == 2 {
- return object
- }
- }
- 
- return nil
- }
- 
- }
- 
- let anArray = [3,4,24,33]
- let anotherArray = ["hello", "world", "!"]
- let thirdArray = [23.3]
- 
- anArray.thirdElementInArray()
- anotherArray.thirdElementInArray()
- thirdArray.thirdElementInArray()
- */
 /*:
- 
  # Oppgave 12
  
  du har fått følgende state satt (enumen må du definere selv):
@@ -267,6 +252,28 @@ extension String {
  
  
  */
+
+
+enum State{
+    case isOnline
+    case hasTakenBackup
+    case ready
+}
+
+let isOnline = false
+let hasTakenBackup = true
+let readyState = State.ready
+let name : String? = "User login screen"
+
+func createUser() {
+    
+}
+
+
+
+
+
+
 
 
 /**
