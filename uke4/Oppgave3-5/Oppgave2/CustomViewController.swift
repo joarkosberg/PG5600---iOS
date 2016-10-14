@@ -14,7 +14,18 @@ class CustomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Les melding"
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func openInBrowser(_ sender: AnyObject) {
+        if let realMessage = message {
+            if realMessage.hasPrefix("http://") || realMessage.hasPrefix("https://"){
+                if let url = URL(string: realMessage){
+                    UIApplication.shared.open(url, options: [:])
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,10 +38,5 @@ class CustomViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func backButtonPressed(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: true)
-        //Not working!
     }
 }
