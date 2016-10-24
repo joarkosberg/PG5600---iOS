@@ -255,8 +255,7 @@ thirdArray.thirdElementInArray()    // nil
 
 
 enum State{
-    case isOnline
-    case hasTakenBackup
+    case notReady
     case ready
 }
 
@@ -266,54 +265,49 @@ let readyState = State.ready
 let name : String? = "User login screen"
 
 func createUser() {
+    if isOnline && hasTakenBackup && readyState == .ready{
+        if name != nil {
+            print("Valid!")
+        } else {
+            print("Name empty")
+        }
+    } else {
+        print("Bools wrong")
+    }
+}
+
+func createUserWihGuard(){
+    guard isOnline else {
+        print("Not online")
+        return
+    }
     
+    guard hasTakenBackup else {
+        print("No backup taken")
+        return
+    }
+    
+    guard readyState == .ready else {
+        print("Not ready")
+        return
+    }
+    
+    guard name != nil else {
+        print("No name set")
+        return
+    }
+    
+    print("Valid!")
 }
 
 
 
+createUser()
+createUserWihGuard()
 
 
 
 
-
-/**
- 
- Fasiten her viser bare hvordan det gjøres med guard
- 
- */
-/*
- enum State {
- case Ready
- }
- 
- let isOnline = false   // gjør denne om til true for å teste om det gikk
- let hasTakenBackup = true
- let readyState = State.Ready
- let name : String? = "User login screen"
- 
- func createUser() {
- guard isOnline else {
- return
- }
- 
- guard hasTakenBackup else {
- return
- }
- 
- guard readyState == State.Ready else {
- return
- }
- 
- guard let actualName = name else {
- return
- }
- 
- print("we created user with name: \(actualName)")
- 
- }
- 
- createUser()
- */
 /*:
  
  # Oppgave 13
@@ -329,6 +323,20 @@ func createUser() {
  
  
  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
  public class Car : Hashable {
  
@@ -361,6 +369,12 @@ func createUser() {
  
  let dict = car1 + car2
  */
+
+
+
+
+
+
 
 
 /*:
