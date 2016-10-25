@@ -325,53 +325,47 @@ createUserWihGuard()
  */
 
 
+class Car : Hashable{
+    var modelName: String
+    var year: Int?
+    
+    init (modelName: String){
+        self.modelName = modelName
+    }
+    
+    var hashValue : Int {
+        return modelName.hash
+    }
+    
+    static func ==(c1: Car, c2: Car) -> Bool {
+        if c1.hashValue == c2.hashValue {
+            return true
+        }
+        return false
+    }
+    
+    static func +(c1: Car, c2: Car?) -> [String : Car]? {
+        if c1 == c2 {
+            return nil
+        } else {
+            if let actualC2 = c2 {
+                return [c1.modelName : c1, actualC2.modelName : actualC2]
+            } else {
+                return [c1.modelName : c1]
+            }
+        }
+    }
+}
 
 
 
+let car1 = Car(modelName: "Tesla")
+let car2 = Car(modelName: "Prius")
+let car3 = Car(modelName: "Prius")
 
-
-
-
-
-
-
-
-
-/*
- public class Car : Hashable {
- 
- let modelName : String
- 
- init(modelName: String) {
- self.modelName = modelName
- }
- 
- public var hashValue : Int {
- return modelName.hash
- }
- 
- }
- 
- 
- public func ==(lhs: Car, rhs: Car) -> Bool {
- if lhs.hashValue == rhs.hashValue {
- return true
- }
- return false
- }
- 
- public func +(lhs: Car, rhs: Car) -> [String : Car] {
- return [lhs.modelName : lhs, rhs.modelName : rhs]
- }
- 
- let car1 = Car(modelName: "Tesla")
- let car2 = Car(modelName: "Prius")
- 
- let dict = car1 + car2
- */
-
-
-
+let dict1 = car1 + car3
+let dict2 = car2 + car3
+let dict3 = car1 + nil
 
 
 
@@ -384,58 +378,55 @@ createUserWihGuard()
  Lag en [AnyObject] med 5 forskjellige objekter, løp gjennom arrayet og bruk switch for å printe de forskjellige objektene hvor du skriver ut klassens navn og hvor mange av dem du har funnet til nå.
  
  */
-/*
- let arrayOfAnyObjects : [AnyObject] = [Car(modelName: "Troll"), "Hello", ["strings"], Student(), [34], Student()]
- 
- 
- extension Dictionary where Key: Comparable, Value: IntegerType {
- 
- mutating func addFinding(key : Key) {
- if self[key] != nil {
- self[key] = self[key]! + 1
- } else {
- self[key] = 1
- }
- }
- 
- func numberOfItemsFound(key : Key) -> Int {
- if self[key] == nil {
- return 0
- } else {
- return self[key] as! Int
- }
- }
- }
- 
- var dictionaryOfFoundItems = [String : Int]()
- 
- for object in arrayOfAnyObjects {
- switch object {
- case is Car:
- dictionaryOfFoundItems.addFinding("car")
- let numberOfFoundItems = dictionaryOfFoundItems.numberOfItemsFound("car")
- print("number of cars \(numberOfFoundItems)")
- case is String:
- dictionaryOfFoundItems.addFinding("string")
- let numberOfFoundItems = dictionaryOfFoundItems.numberOfItemsFound("string")
- print("number of strings \(numberOfFoundItems)")
- case is [String]:
- dictionaryOfFoundItems.addFinding("string array")
- let numberOfFoundItems = dictionaryOfFoundItems.numberOfItemsFound("string array")
- print("number of string arrays \(numberOfFoundItems)")
- case is [Int]:
- dictionaryOfFoundItems.addFinding("int array")
- let numberOfFoundItems = dictionaryOfFoundItems.numberOfItemsFound("int array")
- print("number of int arrays \(numberOfFoundItems)")
- case is Student:
- dictionaryOfFoundItems.addFinding("student")
- let numberOfFoundItems = dictionaryOfFoundItems.numberOfItemsFound("student")
- print("number of students: \(numberOfFoundItems)")
- default:
- break
- }
- }
- */
+
+
+let theAmazingArray : [Any?] = [Car(modelName: "Audi"),
+                                     34,
+                                     "Normal String",
+                                     Frog(birthDate: Date()),
+                                     324.23,
+                                     nil,
+                                     21312]
+
+var counter = [String:Int]()
+func notifyCounter (type: String){
+    if let value = counter[type]{
+        counter[type] = value + 1
+    } else {
+        counter[type] = 1
+    }
+}
+
+print()
+for thing in theAmazingArray{
+    switch thing {
+    case let someInt as Int:
+        print("Int: \(someInt)")
+        notifyCounter(type: "Int")
+    case let someString as String:
+        print("Strng \(someString)")
+        notifyCounter(type: "String")
+    case let someDouble as Double:
+        print("Double: \(someDouble)")
+        notifyCounter(type: "Double")
+    case let someBool as Bool:
+        print("Boolean: \(someBool)")
+        notifyCounter(type: "Bool")
+    case let someCar as Car:
+        print("Car: \(someCar.modelName)")
+        notifyCounter(type: "Car")
+    default:
+        print("Ukjent")
+        notifyCounter(type: "Ukjent")
+    }
+}
+
+print(counter)
+
+
+
+
+
 /*:
  
  #Oppgave 15
@@ -452,6 +443,16 @@ createUserWihGuard()
  
  
  */
+
+
+
+
+
+
+
+
+
+
 
 /*
  func printAllStrings<T: CollectionType>(elements: T) {
