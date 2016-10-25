@@ -48,6 +48,7 @@ class Frog: LivingBeing {
 var frog = Frog(birthDate: Date())
  
 frog.isAlive     // true
+frog.isAlive     // true
 frog.deathDate
 frog.deathDate = Date()
 frog.deathDate
@@ -445,31 +446,24 @@ print(counter)
  */
 
 
+func printAllStrings <T: Collection>(objects: T){
+    for object in objects {
+        if object is String {
+            print(object, terminator: " ")
+        }
+    }
+    print()
+}
 
 
 
 
+let intArray = [ 234, 34 ,33]
+let stringArray = [ "hello", "world" ]
+let anyObjectArray : [Any] = ["Omg", 234, 342.3]
 
+printAllStrings(objects: intArray)
+printAllStrings(objects: stringArray)         // printer: Hello   world
+printAllStrings(objects: anyObjectArray)      // printer: Omg
 
-
-
-
-/*
- func printAllStrings<T: CollectionType>(elements: T) {
- for element in elements {
- if element is String {
- print(element)
- }
- }
- }
- 
- let intArray = [ 234, 34 ,33]
- let stringArray = [ "hello", "world" ]
- let anyObjectArray : [AnyObject] = ["Omg", 234, 342.3]
- 
- 
- printAllStrings(intArray)
- printAllStrings(stringArray)         // printer: Hello   world
- printAllStrings(anyObjectArray)      // printer: Omg
- */
 
