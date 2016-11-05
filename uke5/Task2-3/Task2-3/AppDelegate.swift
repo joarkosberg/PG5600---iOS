@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Task1
+//  Task2-3
 //
-//  Created by Admin  on 11/4/16.
+//  Created by Admin  on 11/5/16.
 //  Copyright © 2016 Admin . All rights reserved.
 //
 
@@ -56,4 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
         return false
     }
+
 }
+

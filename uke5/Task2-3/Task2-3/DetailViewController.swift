@@ -1,8 +1,8 @@
 //
 //  DetailViewController.swift
-//  Task1
+//  Task2-3
 //
-//  Created by Admin  on 11/4/16.
+//  Created by Admin  on 11/5/16.
 //  Copyright © 2016 Admin . All rights reserved.
 //
 
@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
+
 
     func configureView() {
         // Update the user interface for the detail item.
