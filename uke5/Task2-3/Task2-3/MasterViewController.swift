@@ -9,28 +9,19 @@
 import UIKit
 
 class MasterViewController: UITableViewController {
-
-    var detailViewController: DetailViewController? = nil
-    var tasks = [String]()
+    
+    var tasks = [Task]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
         
         self.navigationItem.leftBarButtonItem = self.editButtonItem
-
-        
-        
-        //let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-        //self.navigationItem.rightBarButtonItem = addButton
-        
-        
-        
+        /*
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+ */
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -47,15 +38,12 @@ class MasterViewController: UITableViewController {
     
     
     
-    
-    
-    
-    
     // MARK: - Segues
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = tasks[indexPath.row]
+                let object = tasks[indexPath.row].name
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
@@ -63,12 +51,13 @@ class MasterViewController: UITableViewController {
             }
         }
     }
+ */
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? NewViewController,
             let task = sourceViewController.task {
                 let newIndexPath = IndexPath(row: tasks.count, section: 0)
-                tasks.append(task)
+                tasks.append(Task(name: task, done: false))
                 tableView.insertRows(at: [newIndexPath], with: .bottom)
             
         }
@@ -76,9 +65,21 @@ class MasterViewController: UITableViewController {
     
 
     // MARK: - Table View
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            if cell.accessoryType == .checkmark {
+                cell.accessoryType = .none
+                tasks[indexPath.row].done = false
+            } else {
+                cell.accessoryType = .checkmark
+                tasks[indexPath.row].done = true
+            }
+        }    
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -87,14 +88,19 @@ class MasterViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
         let object = tasks[indexPath.row]
-        cell.textLabel!.text = object.description
+        cell.textLabel!.text = object.name
+                
+        if !object.done {
+            cell.accessoryType = .none
+        } else if object.done {
+            cell.accessoryType = .checkmark
+        }
+
         return cell
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
 
@@ -102,8 +108,6 @@ class MasterViewController: UITableViewController {
         if editingStyle == .delete {
             tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
 }
