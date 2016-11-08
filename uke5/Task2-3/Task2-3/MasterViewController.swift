@@ -9,23 +9,14 @@
 import UIKit
 
 class MasterViewController: UITableViewController {
-    
     var tasks = [Task]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
-        /*
-        if let split = self.splitViewController {
-            let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
- */
+        super.navigationItem.leftBarButtonItem = self.editButtonItem
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
 
@@ -52,6 +43,15 @@ class MasterViewController: UITableViewController {
         }
     }
  */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Create a new variable to store the instance of PlayerTableViewController
+        if ((segue.destination as? GridViewController) != nil) {
+            let destinationVC = segue.destination as! GridViewController
+            destinationVC.tasks = tasks;
+        }
+    }
+    
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? NewViewController,
