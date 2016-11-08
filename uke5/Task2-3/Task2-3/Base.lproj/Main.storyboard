@@ -29,19 +29,19 @@
             <objects>
                 <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="Task2_3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" style="IBUITableViewCellStyleDefault" id="WCw-Qf-5nD">
-                                <rect key="frame" x="0.0" y="86" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="667" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="667" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <frame key="frameInset" minX="15" width="345" height="43"/>
+                                            <frame key="frameInset" minX="15" width="637" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -82,29 +82,35 @@
             <objects>
                 <collectionViewController id="u2l-bX-fIn" customClass="GridViewController" customModule="Task2_3" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Ftr-f1-5BH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fqv-nc-UQa">
-                            <size key="itemSize" width="147" height="56"/>
+                            <size key="itemSize" width="167" height="78"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gridcell" id="6AK-Hu-3fU" customClass="GridViewCell" customModule="Task2_3" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="147" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="167" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="147" height="56"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="167" height="78"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clh-Yp-41L">
-                                            <frame key="frameInset" minY="18" width="147" height="21"/>
+                                            <frame key="frameInset" minY="18" width="167" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="heightClass=compact-widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            </variation>
+                                            <variation key="heightClass=compact-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            </variation>
                                         </label>
                                     </subviews>
                                 </view>
@@ -122,7 +128,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYc-a2-sbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="797.60000000000002" y="0.44977511244377816"/>
+            <point key="canvasLocation" x="668.11594202898561" y="66.032608695652172"/>
         </scene>
         <!--New Todo-->
         <scene sceneID="N8S-O2-G4b">
@@ -133,7 +139,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Ldb-C6-XK5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X7o-K0-IJF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Todo item" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ro-mZ-JIl">
@@ -152,12 +158,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9ro-mZ-JIl" firstAttribute="top" secondItem="Hdf-8x-g3d" secondAttribute="bottom" constant="20" id="9QT-cT-Dlw"/>
                             <constraint firstItem="Hdf-8x-g3d" firstAttribute="centerX" secondItem="9ro-mZ-JIl" secondAttribute="centerX" id="Fa6-Ap-PTa"/>
+                            <constraint firstItem="9ro-mZ-JIl" firstAttribute="top" secondItem="Hdf-8x-g3d" secondAttribute="bottom" constant="20" id="Nwn-iY-Uha"/>
                             <constraint firstItem="9ro-mZ-JIl" firstAttribute="centerY" secondItem="X7o-K0-IJF" secondAttribute="centerY" id="OOA-Ro-KTR"/>
                             <constraint firstItem="9ro-mZ-JIl" firstAttribute="leading" secondItem="X7o-K0-IJF" secondAttribute="leadingMargin" constant="37" id="bWR-G2-sGp"/>
                             <constraint firstItem="Hdf-8x-g3d" firstAttribute="centerX" secondItem="X7o-K0-IJF" secondAttribute="centerX" id="ful-0F-JRJ"/>
-                            <constraint firstItem="Hdf-8x-g3d" firstAttribute="top" secondItem="h1J-ZA-f2B" secondAttribute="bottom" constant="213" id="nEt-iJ-YpS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Todo" id="D0W-vF-dXZ">
