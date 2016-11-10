@@ -9,13 +9,9 @@
 import UIKit
 
 class CustomView: UIView {
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first! as UITouch
-        let point = touch.location(in: self)
-        print("Touch location: \(point)")
+    override func didMoveToWindow() {
+        isUserInteractionEnabled = true
     }
-    
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -26,14 +22,14 @@ class CustomView: UIView {
     */
     override func draw(_ rect: CGRect) {
         let arrowPath = UIBezierPath()
-        arrowPath.move(to: CGPoint(x: 50, y: 0))
+        arrowPath.move(to: CGPoint(x: 50, y: 10))
         arrowPath.addLine(to: CGPoint(x: 70, y: 25))
         arrowPath.addLine(to: CGPoint(x: 60, y: 25))
         arrowPath.addLine(to: CGPoint(x: 60, y: 75))
         arrowPath.addLine(to: CGPoint(x: 40, y: 75))
         arrowPath.addLine(to: CGPoint(x: 40, y: 25))
         arrowPath.addLine(to: CGPoint(x: 30, y: 25))
-        arrowPath.addLine(to: CGPoint(x: 50, y: 0))
+        arrowPath.addLine(to: CGPoint(x: 50, y: 10))
         arrowPath.close()
         UIColor.green.setFill()
         arrowPath.fill()

@@ -17,7 +17,6 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
-
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         self.navigationItem.rightBarButtonItem = addButton
@@ -27,24 +26,29 @@ class MasterViewController: UITableViewController {
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
-        super.viewWillAppear(animated)
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    
+    @IBAction func triggered(_ sender: UITapGestureRecognizer) {
+        print("TRIGGERED!")
+
+        let alert = UIAlertController(title: "Triggered", message: "Du klikket", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Nice", style: .default)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    
+    }
+    
     func insertNewObject(_ sender: Any) {
         objects.insert(NSDate(), at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         self.tableView.insertRows(at: [indexPath], with: .automatic)
     }
-
+    
     // MARK: - Segues
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
@@ -58,7 +62,6 @@ class MasterViewController: UITableViewController {
     }
 
     // MARK: - Table View
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -67,11 +70,8 @@ class MasterViewController: UITableViewController {
         return objects.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> CustomViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomViewCell
         return cell
     }
 
@@ -88,7 +88,4 @@ class MasterViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-
-
 }
-
