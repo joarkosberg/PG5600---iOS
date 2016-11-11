@@ -87,12 +87,13 @@
                                 <rect key="frame" x="0.0" y="86" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <frame key="frameInset" width="375" height="119"/>
+                                    <frame key="frameInset" width="375" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="50C-AD-yTW" customClass="CustomView" customModule="Oppgave1" customModuleProvider="target">
                                             <frame key="frameInset" minY="-1" width="375" height="120"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="0.94640046389999999" blue="0.83170088379999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <gestureRecognizers/>
                                             <connections>
                                                 <outletCollection property="gestureRecognizers" destination="V9g-lh-80n" appends="YES" id="qUe-e6-j2h"/>
@@ -108,7 +109,7 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Draw test" id="Zdf-7t-Un8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="V9g-lh-80n">

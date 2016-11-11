@@ -50,6 +50,7 @@ class MasterViewController: UITableViewController {
     
     // MARK: - Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /*
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row] as! NSDate
@@ -59,6 +60,7 @@ class MasterViewController: UITableViewController {
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
+ */
     }
 
     // MARK: - Table View
