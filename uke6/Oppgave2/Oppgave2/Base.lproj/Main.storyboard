@@ -18,18 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oCM-2f-7SP" customClass="CustomView" customModule="Oppgave2" customModuleProvider="target">
-                                <frame key="frameInset" minX="84" minY="230" width="206" height="207"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCM-2f-7SP" customClass="CustomView" customModule="Oppgave2" customModuleProvider="target">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="206" id="0Sd-TZ-ryq"/>
+                                    <constraint firstAttribute="width" constant="206" id="hj4-9i-oGm"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="NJK-Gf-Mlu" appends="YES" id="HEs-XX-Eco"/>
                                 </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oCM-2f-7SP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="210" id="Lcj-K7-GZR"/>
+                            <constraint firstItem="oCM-2f-7SP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b00-YS-Itd"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="topConstraint" destination="Lcj-K7-GZR" id="9do-IR-THV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="NJK-Gf-Mlu">

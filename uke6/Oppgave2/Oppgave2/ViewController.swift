@@ -10,8 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var onTop: Bool = false
+    
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    
     @IBAction func xTapped(_ sender: UITapGestureRecognizer) {
         print("I GOT TAPPED")
+
+        UIView.animate(withDuration: 2.0){
+            self.updatePosition()
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func updatePosition() -> () {
+        if onTop{
+            topConstraint.constant = 210
+            onTop = false
+        } else {
+            topConstraint.constant = 0
+            onTop = true
+        }
     }
     
     override func viewDidLoad() {
@@ -23,7 +42,4 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
-
