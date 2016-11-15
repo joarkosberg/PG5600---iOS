@@ -11,8 +11,17 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tfSecretText: UITextField!
    
-    @IBAction func unwind(buttonSegue:UIStoryboardSegue){
-        //Unwind action this controller will do
+    @IBAction func unwindToMainScreen(buttonSegue:UIStoryboardSegue){
+        
+        print("UNWINDING")
+      /*
+        let segue = CustomUnwindSegue(identifier: buttonSegue.identifier, source: buttonSegue.source, destination: buttonSegue.destination)
+        segue.perform()
+        */
+
+   //     segue.targetPoint = self.segueButton.center;
+     //   return segue;
+        
     }
     
     override func viewDidLoad() {

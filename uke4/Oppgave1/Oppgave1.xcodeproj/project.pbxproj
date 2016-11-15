@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840F75511DDB3F7100E3D78C /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F75501DDB3F7100E3D78C /* CustomSegue.swift */; };
+		840F75531DDB46B000E3D78C /* CustomUnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F75521DDB46B000E3D78C /* CustomUnwindSegue.swift */; };
 		846CEA771DA7B5B500F42EF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CEA761DA7B5B500F42EF7 /* AppDelegate.swift */; };
 		846CEA791DA7B5B500F42EF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CEA781DA7B5B500F42EF7 /* ViewController.swift */; };
 		846CEA7E1DA7B5B500F42EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846CEA7D1DA7B5B500F42EF7 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		840F75501DDB3F7100E3D78C /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
+		840F75521DDB46B000E3D78C /* CustomUnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUnwindSegue.swift; sourceTree = "<group>"; };
 		846CEA731DA7B5B500F42EF7 /* Oppgave1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oppgave1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846CEA761DA7B5B500F42EF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846CEA781DA7B5B500F42EF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 				846CEAA61DA7DFC000F42EF7 /* Main.storyboard */,
 				846CEA761DA7B5B500F42EF7 /* AppDelegate.swift */,
 				846CEA781DA7B5B500F42EF7 /* ViewController.swift */,
+				840F75521DDB46B000E3D78C /* CustomUnwindSegue.swift */,
+				840F75501DDB3F7100E3D78C /* CustomSegue.swift */,
 				846CEAA41DA7B65800F42EF7 /* CustomViewController.swift */,
 				846CEA7D1DA7B5B500F42EF7 /* Assets.xcassets */,
 				846CEA7F1DA7B5B500F42EF7 /* LaunchScreen.storyboard */,
@@ -262,8 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840F75511DDB3F7100E3D78C /* CustomSegue.swift in Sources */,
 				846CEAA51DA7B65800F42EF7 /* CustomViewController.swift in Sources */,
 				846CEA791DA7B5B500F42EF7 /* ViewController.swift in Sources */,
+				840F75531DDB46B000E3D78C /* CustomUnwindSegue.swift in Sources */,
 				846CEA771DA7B5B500F42EF7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

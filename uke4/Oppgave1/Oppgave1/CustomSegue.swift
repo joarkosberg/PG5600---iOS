@@ -1,0 +1,31 @@
+//
+//  CustomSegue.swift
+//  Oppgave1
+//
+//  Created by Admin  on 11/15/16.
+//  Copyright © 2016 Admin . All rights reserved.
+//
+
+import UIKit
+
+class CustomSegue: UIStoryboardSegue {
+    override func perform() {
+        let source = self.source as UIViewController
+        let destination = self.destination as UIViewController
+        
+        source.view.addSubview(destination.view)
+        
+        destination.view.alpha = 0
+        destination.view.transform = CGAffineTransform(scaleX: 0.05, y: 0.05)
+        
+        
+        UIView.animate(withDuration: 1.0,animations:
+            { () -> Void in
+                destination.view.alpha = 1
+                destination.view.transform = CGAffineTransform(scaleX: 1, y: 1)
+            })
+        {(finished) -> Void in
+            source.navigationController?.pushViewController(destination, animated: false)
+        }
+    }
+}

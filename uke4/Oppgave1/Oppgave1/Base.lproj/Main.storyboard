@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="w2B-Yo-ygb" kind="show" identifier="buttonSegue" id="h85-2W-hG7"/>
+                                    <segue destination="w2B-Yo-ygb" kind="show" identifier="buttonSegue" customClass="CustomSegue" customModule="Oppgave1" customModuleProvider="target" id="h85-2W-hG7"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Secret Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uzD-S4-HqM">
@@ -67,7 +67,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="TS2-qO-vHb" kind="unwind" unwindAction="unwindWithButtonSegue:" id="mUH-Qc-neK"/>
+                                    <segue destination="TS2-qO-vHb" kind="unwind" unwindAction="unwindToMainScreenWithButtonSegue:" id="Dgy-Xg-pFs"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFi-aH-LE0">
