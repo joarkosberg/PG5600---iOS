@@ -35,7 +35,23 @@ class SegmentedControlViewController: UITableViewController {
     func configureDefaultSegmentedControl() {
 
         defaultSegmentedControl.setEnabled(false, forSegmentAtIndex: 0)
+        
+        defaultSegmentedControl.backgroundColor = UIColor.lightGrayColor()
+        defaultSegmentedControl.tintColor = UIColor.greenColor()
 
+        let normalTextAttributes = [
+            NSForegroundColorAttributeName: UIColor.blackColor(),
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Thin", size: 16.0)!
+        ]
+        defaultSegmentedControl.setTitleTextAttributes(normalTextAttributes, forState: .Normal)
+        
+        let highlightTextAttributes = [
+            NSForegroundColorAttributeName: UIColor.greenColor(),
+            NSFontAttributeName: UIFont(name: "AlNile-Bold", size: 20.0)!
+        ]
+        defaultSegmentedControl.setTitleTextAttributes(highlightTextAttributes, forState: .Highlighted)
+        
+        
         defaultSegmentedControl.addTarget(self, action: #selector(SegmentedControlViewController.selectedSegmentDidChange(_:)), forControlEvents: .ValueChanged)
     }
 
@@ -93,7 +109,7 @@ class SegmentedControlViewController: UITableViewController {
 
         // Create a font to use for the attributed title (both normal and highlighted states).
         let captionFontDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleCaption1)
-        let font = UIFont(descriptor: captionFontDescriptor, size: 0)
+        let font = UIFont(descriptor: captionFontDescriptor, size: 3)
 
         let normalTextAttributes = [
             NSForegroundColorAttributeName: UIColor.applicationPurpleColor,
