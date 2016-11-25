@@ -15,6 +15,7 @@
 		846CEA971DA7B5B600F42EF7 /* Oppgave1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CEA961DA7B5B600F42EF7 /* Oppgave1UITests.swift */; };
 		846CEAA51DA7B65800F42EF7 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CEAA41DA7B65800F42EF7 /* CustomViewController.swift */; };
 		846CEAA81DA7DFC000F42EF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846CEAA61DA7DFC000F42EF7 /* Main.storyboard */; };
+		846DCC4E1DDDC081005920BC /* CustomViewController2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846DCC4D1DDDC081005920BC /* CustomViewController2ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		846CEA981DA7B5B600F42EF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		846CEAA41DA7B65800F42EF7 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		846CEAA71DA7DFC000F42EF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		846DCC4D1DDDC081005920BC /* CustomViewController2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController2ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				846CEAA61DA7DFC000F42EF7 /* Main.storyboard */,
+				846DCC4D1DDDC081005920BC /* CustomViewController2ViewController.swift */,
 				846CEA761DA7B5B500F42EF7 /* AppDelegate.swift */,
 				846CEA781DA7B5B500F42EF7 /* ViewController.swift */,
 				846CEAA41DA7B65800F42EF7 /* CustomViewController.swift */,
@@ -265,6 +268,7 @@
 				846CEAA51DA7B65800F42EF7 /* CustomViewController.swift in Sources */,
 				846CEA791DA7B5B500F42EF7 /* ViewController.swift in Sources */,
 				846CEA771DA7B5B500F42EF7 /* AppDelegate.swift in Sources */,
+				846DCC4E1DDDC081005920BC /* CustomViewController2ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
